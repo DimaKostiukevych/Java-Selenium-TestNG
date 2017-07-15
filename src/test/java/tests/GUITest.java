@@ -1,4 +1,4 @@
-package commons;
+package tests;
 
 
 import org.openqa.selenium.Point;
