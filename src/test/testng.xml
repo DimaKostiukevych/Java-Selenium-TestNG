@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Default Suite" verbose="10" parallel="classes">
+<suite name="Default Suite" verbose="10" parallel="classes" thread-count="4">
     <test name="Default Test Name" >
         <classes>
             <class name="tests.PlaygroundTest" />
