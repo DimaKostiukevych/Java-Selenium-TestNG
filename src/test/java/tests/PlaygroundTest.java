@@ -10,7 +10,7 @@ public class PlaygroundTest  extends GUITest{
 
 
     @Test
-    public void testLol(){
+    public void simpleGoogleTest(){
         driver.get("http://google.com");
     }
 

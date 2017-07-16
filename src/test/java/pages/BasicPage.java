@@ -128,5 +128,26 @@ public class BasicPage {
         }
     }
 
+    protected boolean isVisible(By by, int timeout) {
+
+        boolean visible = false;
+        WebElement element;
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+
+        try {
+            element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+            if(element != null){
+                visible = true;
+            }
+        } catch (WebDriverException e) {
+            System.out.printf("Can't find element by: %s", by.toString());
+        }
+        return visible;
+}
+
+    protected boolean isVisible(By by) {
+        return isVisible(by, 5);
+
+    }
 
 }
