@@ -75,5 +75,30 @@ public class GUITest {
         }
     }
 
+     /**
+     * Screenshot taken on test failure saved in ./screenshots directory. and attach to report as image
+     * TODO: Move this functionality to listener and attach it in testng.xml config file
+     * <p>
+     * There is strange behaviour when taking screenshots on chrome, on my local machine Windows, there is blank screenshots
+     * when exeucting tests via Jenkins, something wrong with Jeknins as Windows Service
+     */
+    @AfterMethod
+    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+        if (testResult.getStatus() == ITestResult.FAILURE) {
+            System.out.println(testResult.getStatus());
+            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File toFile = new File(".\\TestResults\\Screenshots\\" + testResult.getName() +
+                    ".jpg");
+            File sureFireFile = new File(".\\target\\surefire-reports\\Screenshots\\" + testResult.getName() +
+                    ".jpg");
+            FileUtils.copyFile(scrFile, toFile);
+            FileUtils.copyFile(scrFile, sureFireFile);
+            Reporter.setCurrentTestResult(testResult);
+            Reporter.log("Method failed screenshot below: ");
+            Reporter.log("<br> <a href=\"./Screenshots/" + testResult.getName() + ".jpg\" >" +
+                    "<img style=\"width:150px\" src=./Screenshots/" + testResult.getName() + ".jpg /></a><br>");
+
+        }
+    }
 
 }
