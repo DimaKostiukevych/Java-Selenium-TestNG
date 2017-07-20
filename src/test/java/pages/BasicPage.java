@@ -150,4 +150,23 @@ public class BasicPage {
 
     }
 
+    /**
+     * Highlight WebElement with red border
+     * @param ele WebElement to be highlighted
+     */
+
+    protected void  highlightElement(WebElement ele){
+        executeJSOnElement(ele,"style.border='10px solid red'");
+    }
+
+    /**
+     * Execute Javascript statement on selected WebElement, i.e modifying styles.
+     * @param ele WebElement on which js will be executed
+     * @param script Javascript statement
+     */
+    protected void executeJSOnElement( WebElement ele, String script){
+        WebElement element = ele;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(String.format("arguments[0].%s", script), element);
+    }
 }

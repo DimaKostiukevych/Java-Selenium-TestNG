@@ -1,17 +1,25 @@
 package tests;
 
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.SystemUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import static commons.ParametersReaders.getPropertyByName;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -74,13 +82,13 @@ public class GUITest {
             System.setProperty("phantomjs.binary.path", "WebDrivers/windows/phantomjs.exe");
         }
     }
-
-     /**
+    /**
      * Screenshot taken on test failure saved in ./screenshots directory. and attach to report as image
      * TODO: Move this functionality to listener and attach it in testng.xml config file
-     * <p>
+     *
      * There is strange behaviour when taking screenshots on chrome, on my local machine Windows, there is blank screenshots
      * when exeucting tests via Jenkins, something wrong with Jeknins as Windows Service
+     *
      */
     @AfterMethod
     public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
@@ -92,11 +100,14 @@ public class GUITest {
             File sureFireFile = new File(".\\target\\surefire-reports\\Screenshots\\" + testResult.getName() +
                     ".jpg");
             FileUtils.copyFile(scrFile, toFile);
-            FileUtils.copyFile(scrFile, sureFireFile);
+            FileUtils.copyFile(scrFile,sureFireFile);
             Reporter.setCurrentTestResult(testResult);
             Reporter.log("Method failed screenshot below: ");
-            Reporter.log("<br> <a href=\"./Screenshots/" + testResult.getName() + ".jpg\" >" +
-                    "<img style=\"width:150px\" src=./Screenshots/" + testResult.getName() + ".jpg /></a><br>");
+            Reporter.log("<br> <a href=\"./Screenshots/"+testResult.getName()+".jpg\" >" +
+                    "<img style=\"width:150px\" src=./Screenshots/"+testResult.getName()+".jpg /></a><br>");
+
+        }
+    }
 
         }
     }
