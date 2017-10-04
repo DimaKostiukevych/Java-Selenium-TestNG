@@ -44,6 +44,7 @@ public class GUITest {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
+
                 break;
             case "Firefox":
                 driver = new FirefoxDriver();
@@ -77,6 +78,8 @@ public class GUITest {
             System.setProperty("webdriver.chromne.driver", "./WebDrivers/linux/chromedriver");
             System.setProperty("webdriver.gecko.driver", "./WebDrivers/linux/geckodriver");
             System.setProperty("phantomjs.binary.path", "./WebDrivers/linux/phantomjs");
+            System.out.println("JUMP IN HERE");
+            System.out.println(System.getProperty("webdriver.chromne.driver"));
         }
         if (SystemUtils.IS_OS_WINDOWS) {
             System.setProperty("webdriver.chrome.driver", "WebDrivers/windows/chromedriver.exe");
