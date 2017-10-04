@@ -38,7 +38,8 @@ public class DraggableAndSortablePage extends BasicPage {
     }
 
     public void changeItemOrder(){
-        new Actions(driver).dragAndDrop(getElement(item3),getElement(item5));
+        dragAndDropOnElementWithOffset(item3,item5,0,8);
+        sleep(2,TimeUnit.SECONDS);
     }
 
 }

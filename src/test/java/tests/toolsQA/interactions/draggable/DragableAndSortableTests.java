@@ -41,6 +41,12 @@ public class DragableAndSortableTests extends GUITest {
     }
 
     @Test(priority = 2)
+    public void checkChangedOrder(){
+
+    }
+
+
+    @Test(priority = 3)
     public void checkOrderWithDropeDown(){
         dsp.moveDragMeDownToList();
 
@@ -51,7 +57,6 @@ public class DragableAndSortableTests extends GUITest {
         for(int i = 0;i<orderlist.size();i++){
            Assert.assertEquals(neworder.get(i),orderlist.get(i).getText());
        }
-
 
     }
 

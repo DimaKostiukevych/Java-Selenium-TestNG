@@ -191,8 +191,8 @@ public class BasicPage {
      * @param y Y axis offset
      */
     protected void dragAndDropOnElementWithOffset(By source, By target,int x, int y){
-        WebElement src = driver.findElement(source);
-        WebElement trg = driver.findElement(target);
+        WebElement src = getElement(source);
+        WebElement trg = getElement(target);
 
         int xoffset = trg.getLocation().getX() - src.getLocation().getX() + x;
         int yoffset = trg.getLocation().getY() - src.getLocation().getY() + y;
