@@ -53,7 +53,7 @@ public class BasicPage {
      *
      * @return Page Title
      */
-    protected String getPageTitle() {
+    public String getPageTitle() {
         waitPageLoad();
         return driver.getTitle();
     }

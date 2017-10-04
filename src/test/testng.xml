@@ -1,8 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Default Suite" verbose="10" parallel="classes" thread-count="4">
-    <test name="Default Test Name" >
+<suite name="ToolsQA Selenium Playground" verbose="10" parallel="classes" thread-count="4">
+    <test name="Draggable Elements Tests" >
         <classes>
-            <class name="tests.PlaygroundTest" />
+            <class name="tests.toolsQA.interactions.draggable.ConstrainMovementTests" />
+            <class name="tests.toolsQA.interactions.draggable.DefaultFunctionalityTests" />
+            <class name="tests.toolsQA.interactions.draggable.EventsTests" />
         </classes>
     </test>
 </suite>

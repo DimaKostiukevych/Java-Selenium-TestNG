@@ -8,7 +8,9 @@ import pages.BasicPage;
 
 
 public class EventsPage extends BasicPage {
-
+    /**
+     * Something wrong with Action event performing.
+     */
     private final By events_label = By.xpath("//li[@aria-labelledby='ui-id-4']/a");
     private final By start_counter = By.xpath("//li[@id='event-start']/span[2]");
     private final By drag_counter = By.xpath("//li[@id='event-drag']/span[2]");
