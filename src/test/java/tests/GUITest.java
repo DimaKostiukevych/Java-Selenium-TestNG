@@ -75,7 +75,7 @@ public class GUITest {
      */
     private void setUpWebDriverBasedOnOS() {
         if (SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC) {
-            System.setProperty("webdriver.chromne.driver", "./WebDrivers/linux/chromedriver");
+            System.setProperty("webdriver.chromne.driver", "/usr/local/bin/chromedriver");
             System.setProperty("webdriver.gecko.driver", "./WebDrivers/linux/geckodriver");
             System.setProperty("phantomjs.binary.path", "./WebDrivers/linux/phantomjs");
             System.out.println("JUMP IN HERE");
