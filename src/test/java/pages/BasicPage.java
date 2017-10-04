@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -169,4 +170,37 @@ public class BasicPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(String.format("arguments[0].%s", script), element);
     }
+
+    /**
+     * Drag and drop element from source onto target
+     * @param source By selector of source WebElement
+     * @param target By selector of target WebElement
+     */
+    protected void dragAndDropOnElement(By source, By target){
+        WebElement src = getElement(source);
+        WebElement trg = getElement(target);
+
+        (new Actions(driver)).dragAndDrop(src,trg).build().perform();
+    }
+
+    /**
+     * Drag and drop source element onto target element with x,y offset. Staring coordinates point to upper left corner of element.
+     * @param source By selector of source WebElement
+     * @param target By selector of target WebElement
+     * @param x X axis offset
+     * @param y Y axis offset
+     */
+    protected void dragAndDropOnElementWithOffset(By source, By target,int x, int y){
+        WebElement src = driver.findElement(source);
+        WebElement trg = driver.findElement(target);
+
+        int xoffset = trg.getLocation().getX() - src.getLocation().getX() + x;
+        int yoffset = trg.getLocation().getY() - src.getLocation().getY() + y;
+
+        (new Actions(driver)).dragAndDropBy(src,xoffset,yoffset).build().perform();
+
+    }
+
+
+
 }

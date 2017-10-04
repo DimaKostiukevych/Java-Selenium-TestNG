@@ -16,11 +16,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
-import static commons.ParametersReaders.getPropertyByName;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import static commons.ParametersReaders.*;
 
 /**
  * Main class for GUITests, all of test classes should inherit this as superclass, we have implemented here basics setup for each Selenium test such as setting up browser based on properties
@@ -58,11 +58,11 @@ public class GUITest {
         driver.manage().window().maximize();
     }
 
-    @AfterClass
-    protected void tearUpBrowser() {
-        driver.manage().deleteAllCookies();
-        driver.close();
-    }
+//    @AfterClass
+//    protected void tearUpBrowser() {
+//        driver.manage().deleteAllCookies();
+//        driver.close();
+//    }
 
     /**
      * Setting up system property with executable binaries for WebDrivers, It must been separated to different
