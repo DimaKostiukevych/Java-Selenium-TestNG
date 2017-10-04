@@ -100,7 +100,7 @@ public class GUITest {
             File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             File toFile = new File(".\\TestResults\\Screenshots\\" + testResult.getName() +
                     ".jpg");
-            File sureFireFile = new File(".\\target\\surefire-reports\\Screenshots\\" + testResult.getName() +
+            File sureFireFile = new File("./target/surefire-reports/Screenshots/" + testResult.getName() +
                     ".jpg");
             FileUtils.copyFile(scrFile, toFile);
             FileUtils.copyFile(scrFile,sureFireFile);
