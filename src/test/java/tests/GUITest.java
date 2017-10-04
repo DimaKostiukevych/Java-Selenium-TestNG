@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -40,7 +41,9 @@ public class GUITest {
 
         switch (BROWSER) {
             case "Chrome":
-                driver = new ChromeDriver();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                driver = new ChromeDriver(chromeOptions);
                 break;
             case "Firefox":
                 driver = new FirefoxDriver();
@@ -71,10 +74,9 @@ public class GUITest {
      */
     private void setUpWebDriverBasedOnOS() {
         if (SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC) {
-            System.setProperty("webdriver.chromne.driver", "WebDrivers/linux/chromedriver");
-            System.setProperty("webdriver.gecko.driver", "WebDrivers/linux/geckodriver");
-            System.setProperty("phantomjs.binary.path", "WebDrivers/linux/phantomjs");
-
+            System.setProperty("webdriver.chromne.driver", "./WebDrivers/linux/chromedriver");
+            System.setProperty("webdriver.gecko.driver", "./WebDrivers/linux/geckodriver");
+            System.setProperty("phantomjs.binary.path", "./WebDrivers/linux/phantomjs");
         }
         if (SystemUtils.IS_OS_WINDOWS) {
             System.setProperty("webdriver.chrome.driver", "WebDrivers/windows/chromedriver.exe");
