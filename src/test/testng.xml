@@ -5,6 +5,7 @@
             <class name="tests.toolsQA.interactions.draggable.ConstrainMovementTests" />
             <class name="tests.toolsQA.interactions.draggable.DefaultFunctionalityTests" />
             <class name="tests.toolsQA.interactions.draggable.EventsTests" />
+            <class name="tests.toolsQA.interactions.draggable.DragableAndSortableTests" />
         </classes>
     </test>
 </suite>
