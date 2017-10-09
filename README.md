@@ -13,6 +13,9 @@ Tests execute by running Maven Surefire plugin configurated by testng.xml file:
 
 Tests run in parell, each test class run independently, max threads count is 4, different value can be set up by changing testng.xml configuration file.
 
+### Example
+For tests example, I implemented interactions with WebElements using Selenium listed on http://demoqa.com/ using Page Object Pattern.
+
 ### Test parameters
 Test can be parametrized by parameters.xml file, where we input key as XML Tag and value between tags, i.e: `<browser>Chrome</browser>`. We receive parameters value using _ParametersReader_ class and method _getPropertyByName()_
 
@@ -20,7 +23,7 @@ Test can be parametrized by parameters.xml file, where we input key as XML Tag a
 Project has been implemented to work with serveral browser set up by <browser> parameter in paramterers.xml. Available browsers:
 + Chrome
 + Firefox
-+ HtmlUnit (headless execution)
-+ PhantomJS (headless execution)
++ HtmlUnit 
++ PhantomJS
 
 _Please note that WebDriver for Chrome and Firefox expects that software is already installed on machine. So If You don't have installed Chrome or/and Firefox install it in default directory._
